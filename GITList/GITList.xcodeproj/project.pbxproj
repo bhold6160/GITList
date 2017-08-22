@@ -54,14 +54,38 @@
 		F286CA151F4BD2C000D18506 /* GITList */ = {
 			isa = PBXGroup;
 			children = (
+				F286CA281F4BD33B00D18506 /* Model */,
+				F286CA2A1F4BD35400D18506 /* View */,
+				F286CA2B1F4BD35B00D18506 /* Controller */,
 				F286CA161F4BD2C000D18506 /* AppDelegate.swift */,
-				F286CA181F4BD2C000D18506 /* ViewController.swift */,
-				F286CA1A1F4BD2C000D18506 /* Main.storyboard */,
 				F286CA1D1F4BD2C000D18506 /* Assets.xcassets */,
 				F286CA1F1F4BD2C000D18506 /* LaunchScreen.storyboard */,
 				F286CA221F4BD2C000D18506 /* Info.plist */,
 			);
 			path = GITList;
+			sourceTree = "<group>";
+		};
+		F286CA281F4BD33B00D18506 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F286CA2A1F4BD35400D18506 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F286CA1A1F4BD2C000D18506 /* Main.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F286CA2B1F4BD35B00D18506 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F286CA181F4BD2C000D18506 /* ViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

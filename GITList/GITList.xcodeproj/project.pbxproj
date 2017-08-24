@@ -92,8 +92,8 @@
 		F286CA2B1F4BD35B00D18506 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				F286CA3B1F4D33BA00D18506 /* HomeViewController.swift */,
 				F286CA181F4BD2C000D18506 /* ViewController.swift */,
+				F286CA3B1F4D33BA00D18506 /* HomeViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

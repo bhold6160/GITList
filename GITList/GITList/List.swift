@@ -7,7 +7,33 @@
 //
 
 import Foundation
+import CloudKit
+
+enum RecordError: Error {
+    case writingImageToData
+    case writingDataToDisk
+}
 
 class List {
-
+    let list: [String]
+    
+    init(list: [String]) {
+        self.list = list
+    }
+    
+//    func record() throws -> CKRecord? {
+//        guard let data = UIImageJPEGRepresentation(self.image, 1.0) else { throw RecordError.writingImageToData }
+//        
+//        do {
+//            try data.write(to: image.path())
+//            
+//            let asset = CKAsset(fileURL: image.path())
+//            let postRecord = CKRecord(recordType: "Post")
+//            postRecord.setObject(asset, forKey: "image")
+//            
+//            return postRecord
+//        } catch {
+//            throw RecordError.writingDataToDisk
+//        }
+//    }
 }

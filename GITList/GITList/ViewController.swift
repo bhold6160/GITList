@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var userList = ["Do something", "do something else", "do more stuff", "And more"] {
+    var userList = [List]() {
         didSet {
             listTableView.reloadData()
         }
@@ -20,7 +20,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func addNewItem(_ sender: Any) {
         itemTextField.resignFirstResponder()
-//        listCell = itemTextField.text
         
         if (itemTextField.text != "") {
             

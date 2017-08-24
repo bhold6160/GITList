@@ -10,27 +10,20 @@ import UIKit
 import CloudKit
 
 enum RecordError: Error {
-    case writingImageToData
+    case writingListToData
     case writingDataToDisk
 }
 
 class List {
     var items = [String]()
     
-    
-//    func record() throws -> CKRecord? {
-//        guard let data = UIImageJPEGRepresentation(self.image, 1.0) else { throw RecordError.writingImageToData }
-//        
-//        do {
-//            try data.write(to: image.path())
-//            
-//            let asset = CKAsset(fileURL: image.path())
-//            let postRecord = CKRecord(recordType: "Post")
-//            postRecord.setObject(asset, forKey: "image")
-//            
-//            return postRecord
-//        } catch {
-//            throw RecordError.writingDataToDisk
-//        }
-//    }
-}
+    func record() throws -> CKRecord? {
+            
+            let listRecord = CKRecord(recordType: "List")
+        
+            listRecord["items"] = self.items as CKRecordValue
+            
+            return listRecord
+        }
+    }
+

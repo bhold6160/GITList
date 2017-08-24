@@ -8,7 +8,17 @@
 
 import UIKit
 
-//class ListCell: UITableViewCell {
-//    
-//
-//}
+class ListCell: UITableViewCell {
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var previewLabel: UILabel!
+    @IBOutlet weak var numItemsLabel: UILabel!
+
+    var list: List! {
+        didSet {
+            self.previewLabel.text = list.items.reduce("", { (firstItem, secondItem) -> String in
+                return firstItem + ", " + secondItem
+            })
+        }
+    }
+}

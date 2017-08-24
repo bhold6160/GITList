@@ -38,6 +38,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        CloudKit.shared.getList {(list) in
+            if let list = list {
+                print(list)
+                self.userList = list
+            }
+        }
         listTableView.reloadData()
     }
     

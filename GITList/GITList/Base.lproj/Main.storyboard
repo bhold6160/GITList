@@ -118,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="2765.5999999999999" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--All Lists View Controller-->
         <scene sceneID="mgp-br-JL8">
             <objects>
-                <viewController id="5Bk-Ge-DJk" sceneMemberID="viewController">
+                <viewController id="5Bk-Ge-DJk" customClass="AllListsViewController" customModule="GITList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1Ww-te-Hft"/>
                         <viewControllerLayoutGuide type="bottom" id="Jjd-4O-Nqo"/>
@@ -143,6 +143,9 @@
                             <constraint firstItem="Jjd-4O-Nqo" firstAttribute="top" secondItem="7Bi-cx-drw" secondAttribute="bottom" constant="8" id="pvt-cs-jtd"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="allListsTable" destination="7Bi-cx-drw" id="9dy-DP-ySN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPX-fe-E8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

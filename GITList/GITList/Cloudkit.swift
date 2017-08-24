@@ -50,24 +50,17 @@ class CloudKit {
                 print(error!.localizedDescription)
                 completion(nil)
             }
-            if let records = records {
-                var allList = [List]()
-//                for record in records {
-//                    
-//                    guard let asset = record["image"] as? CKAsset else { continue }
-//                    let path = asset.fileURL.path
-//                    
-//                    guard let image = UIImage(contentsOfFile: path) else { continue }
-//                    let newList = List(image: image)
-//                    userList.append(newList)
-//                }
+
+                var allLists = [List]()
+    
+                    let newList = List()
+                    allLists.append(newList)
                 
                 OperationQueue.main.addOperation {
-                    completion(userList)
+                    completion(allLists)
                 }
-            } else {
                 completion(nil)
             }
         }
     }
-}
+

@@ -8,18 +8,58 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    var userList = List()
+    
+    @IBOutlet weak var listTableView: UITableView!
+    
+    @IBAction func addNewItem(_ sender: Any) {
+        itemTextField.resignFirstResponder()
+        
+        if (itemTextField.text != "") {
+            
+            userList.items.append(itemTextField.text!)
+            print(userList.items)
+            listTableView.reloadData()
+            itemTextField.text = ""
+        }
+    }
+    
+    @IBOutlet weak var itemTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        CloudKit.shared.getList {(list) in
+//            if let list = list {
+//                print(list)
+//                self.userList = list
+//            }
+        listTableView.reloadData()
     }
-
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userList.items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath)
+        cell.textLabel?.text = userList.items[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            userList.items.remove(at: indexPath.row)
+            listTableView.reloadData()
+        }
+    }
 }
 

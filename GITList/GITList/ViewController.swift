@@ -10,11 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var userList = [List]() {
-        didSet {
-            listTableView.reloadData()
-        }
-    }
+    var userList = List()
     
     @IBOutlet weak var listTableView: UITableView!
     
@@ -23,7 +19,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         if (itemTextField.text != "") {
             
-            userList.append(itemTextField.text!)
+            userList.items.append(itemTextField.text!)
+            print(userList.items)
+            listTableView.reloadData()
             itemTextField.text = ""
         }
     }
@@ -37,16 +35,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+//        CloudKit.shared.getList {(list) in
+//            if let list = list {
+//                print(list)
+//                self.userList = list
+//            }
         listTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userList.count
+        return userList.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath)
-        cell.textLabel?.text = userList[indexPath.row]
+        cell.textLabel?.text = userList.items[indexPath.row]
         
         return cell
     }
@@ -54,7 +57,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == UITableViewCellEditingStyle.delete {
-            userList.remove(at: indexPath.row)
+            userList.items.remove(at: indexPath.row)
             listTableView.reloadData()
         }
     }

@@ -6,7 +6,7 @@
 //  Copyright © 2017 Brandon Holderman. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CloudKit
 
 enum RecordError: Error {
@@ -15,11 +15,8 @@ enum RecordError: Error {
 }
 
 class List {
-    let list: [String]
+    var items = [String]()
     
-    init(list: [String]) {
-        self.list = list
-    }
     
 //    func record() throws -> CKRecord? {
 //        guard let data = UIImageJPEGRepresentation(self.image, 1.0) else { throw RecordError.writingImageToData }

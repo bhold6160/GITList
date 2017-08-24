@@ -15,12 +15,13 @@ enum RecordError: Error {
 }
 
 class List {
+    static var shared = List()
+    
     var items = [String]()
     
     func record() throws -> CKRecord? {
             
             let listRecord = CKRecord(recordType: "List")
-        
             listRecord["items"] = self.items as CKRecordValue
             
             return listRecord

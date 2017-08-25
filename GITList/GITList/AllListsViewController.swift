@@ -10,7 +10,7 @@ import UIKit
 
 class AllListsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var allList = [List]()
+    var allLists = [List]()
     
     @IBOutlet weak var allListsTable: UITableView!
     
@@ -34,7 +34,7 @@ class AllListsViewController: UIViewController, UITableViewDataSource, UITableVi
         CloudKit.shared.getList { (userList) in
             if let userList = userList {
                 OperationQueue.main.addOperation {
-                    self.allList = userList
+                    self.allLists = userList
                     self.allListsTable.reloadData()
                 }
             }
@@ -42,13 +42,13 @@ class AllListsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return allList.count
+        return allLists.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listCell", for: indexPath) as! ListCell
         
-        let currentList = self.allList[indexPath.row]
+        let currentList = self.allLists[indexPath.row]
         
         cell.list = currentList
         

@@ -48,6 +48,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="VfF-Vu-NMB"/>
+                    <connections>
+                        <outlet property="homeTableView" destination="uKr-jN-Kdi" id="1r0-Yy-tmE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

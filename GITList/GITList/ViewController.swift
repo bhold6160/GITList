@@ -29,6 +29,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func saveButtonPressed(_ sender: Any) {
             CloudKit.shared.save(list: userList, completion: { (success) in
                 if success {
+                    self.performSegue(withIdentifier: "saveSegue", sender: nil)
                     print("Successfully saved to the cloud")
                 } else {
                     print("Unsuccessful in saving to cloud")

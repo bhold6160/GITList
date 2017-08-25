@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -95,6 +96,10 @@
                                 <state key="normal" title="Save">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="73T-cb-e1T" eventType="touchUpInside" id="Vsp-QC-vD6"/>
+                                    <segue destination="5Bk-Ge-DJk" kind="show" id="62C-O7-Gqr"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -114,22 +119,103 @@
             </objects>
             <point key="canvasLocation" x="2765.5999999999999" y="138.98050974512745"/>
         </scene>
+
+        <!--Item-->
+        <scene sceneID="3pF-va-eRS">
+            <objects>
+                <viewController id="4Qp-dL-CNO" customClass="DateViewController" customModule="GITList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5CL-Qn-6cM"/>
+                        <viewControllerLayoutGuide type="bottom" id="QhV-I6-i2J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EWo-ZV-eDW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Expiration Date" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z2o-0u-D0C">
+                                <rect key="frame" x="202" y="120" width="157" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Lwa-Ak-glw"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Milk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pib-gE-jxY">
+                                <rect key="frame" x="26" y="125" width="31" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="z2o-0u-D0C" firstAttribute="top" secondItem="5CL-Qn-6cM" secondAttribute="bottom" constant="100" id="J4Z-cG-Pa3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="z2o-0u-D0C" secondAttribute="trailing" id="ufc-Py-xhf"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="XIv-2m-DHI"/>
+                    <connections>
+                        <outlet property="datePickerText" destination="z2o-0u-D0C" id="eap-OI-gDT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yw3-G6-QUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008.8" y="1017.84107946027"/>
+
+        <!--All Lists View Controller-->
+        <scene sceneID="mgp-br-JL8">
+            <objects>
+                <viewController id="5Bk-Ge-DJk" customClass="AllListsViewController" customModule="GITList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Ww-te-Hft"/>
+                        <viewControllerLayoutGuide type="bottom" id="Jjd-4O-Nqo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dLi-vt-KYE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Bi-cx-drw">
+                                <rect key="frame" x="0.0" y="64" width="375" height="546"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7Bi-cx-drw" firstAttribute="top" secondItem="1Ww-te-Hft" secondAttribute="bottom" id="0T3-0m-u0j"/>
+                            <constraint firstItem="7Bi-cx-drw" firstAttribute="leading" secondItem="dLi-vt-KYE" secondAttribute="leading" id="STj-gb-Jqi"/>
+                            <constraint firstAttribute="trailing" secondItem="7Bi-cx-drw" secondAttribute="trailing" id="c0Q-by-Cnf"/>
+                            <constraint firstItem="Jjd-4O-Nqo" firstAttribute="top" secondItem="7Bi-cx-drw" secondAttribute="bottom" constant="8" id="pvt-cs-jtd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="allListsTable" destination="7Bi-cx-drw" id="9dy-DP-ySN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZPX-fe-E8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3608.8000000000002" y="139.880059970015"/>
+
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="X4H-2h-iHq">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="8ZD-go-95e" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Esa-CP-gja">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="I9U-rD-yBA" kind="relationship" relationship="viewControllers" id="XZb-2a-ZCY"/>
+                        <segue destination="4Qp-dL-CNO" kind="relationship" relationship="viewControllers" id="FvL-8Z-vUd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8c-AN-aER" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="139"/>
+            <point key="canvasLocation" x="127" y="613"/>
         </scene>
         <!--Item-->
         <scene sceneID="Vc8-K4-dP8">

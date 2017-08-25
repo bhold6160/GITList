@@ -26,20 +26,25 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    @IBAction func saveButtonPressed(_ sender: Any) {
+            CloudKit.shared.save(list: userList, completion: { (success) in
+                if success {
+                    print("Successfully saved to the cloud")
+                } else {
+                    print("Unsuccessful in saving to cloud")
+                }
+            })
+        }
+    
     @IBOutlet weak var itemTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        CloudKit.shared.getList {(list) in
-//            if let list = list {
-//                print(list)
-//                self.userList = list
-//            }
+        
         listTableView.reloadData()
     }
     

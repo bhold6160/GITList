@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CA025771F4E663500284799 /* DateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CA025761F4E663400284799 /* DateController.swift */; };
 		F286CA171F4BD2C000D18506 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F286CA161F4BD2C000D18506 /* AppDelegate.swift */; };
 		F286CA191F4BD2C000D18506 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F286CA181F4BD2C000D18506 /* ViewController.swift */; };
 		F286CA1C1F4BD2C000D18506 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F286CA1A1F4BD2C000D18506 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5CA025761F4E663400284799 /* DateController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateController.swift; sourceTree = "<group>"; };
 		F286CA131F4BD2C000D18506 /* GITList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GITList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F286CA161F4BD2C000D18506 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F286CA181F4BD2C000D18506 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			children = (
 				F286CA3B1F4D33BA00D18506 /* HomeViewController.swift */,
 				F286CA181F4BD2C000D18506 /* ViewController.swift */,
+				5CA025761F4E663400284799 /* DateController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F286CA191F4BD2C000D18506 /* ViewController.swift in Sources */,
+				5CA025771F4E663500284799 /* DateController.swift in Sources */,
 				F286CA321F4D1D2600D18506 /* ListCell.swift in Sources */,
 				F286CA171F4BD2C000D18506 /* AppDelegate.swift in Sources */,
 				F286CA2E1F4D1A4A00D18506 /* List.swift in Sources */,
@@ -352,6 +356,7 @@
 				F286CA271F4BD2C000D18506 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

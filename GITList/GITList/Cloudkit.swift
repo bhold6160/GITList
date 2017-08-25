@@ -44,7 +44,7 @@ class CloudKit {
     
     func getList(completion:  @escaping GetListCompletion) {
         let query = CKQuery(recordType: "List", predicate: NSPredicate(value: true))
-        
+        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         self.database.perform(query, inZoneWith: nil) { (records, error) in
             if error != nil {
                 print(error!.localizedDescription)

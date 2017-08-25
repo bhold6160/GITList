@@ -20,7 +20,7 @@ class CloudKit {
     }
     
     private init (){}
-    
+ 
     func save(list: List, completion: @escaping ListCompletion) {
         do {
             if let record = try list.record() {
@@ -70,4 +70,3 @@ class CloudKit {
         }
     }
 }
-

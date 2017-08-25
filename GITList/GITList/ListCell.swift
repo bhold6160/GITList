@@ -18,6 +18,13 @@ class ListCell: UITableViewCell {
         didSet {
             self.previewLabel.text = list.items.reduce("", { (firstItem, secondItem) -> String in
                 print(firstItem + "" + secondItem)
+                let creationDate = Date()
+                titleLabel.text = DateFormatter.localizedString(from: creationDate, dateStyle:
+                    DateFormatter.Style.full, timeStyle: DateFormatter.Style.none)
+                    func numItems() -> Int {
+                    return list.count
+                        count = numItemsLabel
+                }
                 return "" + firstItem + ", " + secondItem
             })
         }

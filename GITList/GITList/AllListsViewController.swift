@@ -24,7 +24,7 @@ class AllListsViewController: UIViewController, UITableViewDataSource, UITableVi
         self.allListsTable.register(nib, forCellReuseIdentifier: "listCell")
         
         self.allListsTable.rowHeight = UITableViewAutomaticDimension
-        self.allListsTable.estimatedRowHeight = 75
+        self.allListsTable.estimatedRowHeight = 50
         
 }
     

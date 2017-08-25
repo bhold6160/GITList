@@ -15,9 +15,43 @@
             <rect key="frame" x="0.0" y="0.0" width="544" height="117"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LIt-0C-Wpf" id="hm6-qj-E5A">
-                <rect key="frame" x="0.0" y="0.0" width="544" height="117"/>
+                <rect key="frame" x="0.0" y="0.0" width="544" height="116.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccw-WS-4jt">
+                        <rect key="frame" x="8" y="8" width="33.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preview" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1m-Zb-nqK">
+                        <rect key="frame" x="8" y="87" width="60.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIf-dS-ggX">
+                        <rect key="frame" x="479" y="8" width="57" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="F1m-Zb-nqK" firstAttribute="leading" secondItem="hm6-qj-E5A" secondAttribute="leading" constant="8" id="2YL-e3-Oof"/>
+                    <constraint firstItem="ccw-WS-4jt" firstAttribute="leading" secondItem="hm6-qj-E5A" secondAttribute="leading" constant="8" id="Ear-6k-2st"/>
+                    <constraint firstItem="F1m-Zb-nqK" firstAttribute="top" secondItem="ccw-WS-4jt" secondAttribute="bottom" constant="58.5" id="G82-sW-wXF"/>
+                    <constraint firstAttribute="bottom" secondItem="F1m-Zb-nqK" secondAttribute="bottom" constant="8.5" id="MUX-Jm-bnO"/>
+                    <constraint firstItem="ccw-WS-4jt" firstAttribute="top" secondItem="hm6-qj-E5A" secondAttribute="top" constant="8" id="TxX-u5-7xA"/>
+                    <constraint firstItem="PIf-dS-ggX" firstAttribute="top" secondItem="hm6-qj-E5A" secondAttribute="top" constant="8" id="osM-W9-HTH"/>
+                    <constraint firstAttribute="trailing" secondItem="PIf-dS-ggX" secondAttribute="trailing" constant="8" id="wHg-wM-U7Z"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="numItemsLabel" destination="PIf-dS-ggX" id="er8-f2-enE"/>
+                <outlet property="previewLabel" destination="F1m-Zb-nqK" id="bsa-bK-r7v"/>
+                <outlet property="titleLabel" destination="ccw-WS-4jt" id="mvv-c8-x6j"/>
+            </connections>
             <point key="canvasLocation" x="-2" y="-204.5"/>
         </tableViewCell>
     </objects>

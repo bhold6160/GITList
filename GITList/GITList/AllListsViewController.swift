@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol AllListsControllerDelegate: class {
+    func listController(didSelect items: [String])
+}
+
 class AllListsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var allLists = [List]()
+    weak var delegate: AllListsControllerDelegate?
     
     @IBOutlet weak var allListsTable: UITableView!
     
@@ -53,5 +58,13 @@ class AllListsViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.list = currentList
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let delegate = self.delegate {
+            let selectedList = self.allLists[indexPath.row]
+            
+            delegate.listController(didSelect: selectedList.items)
+        }
     }
 }

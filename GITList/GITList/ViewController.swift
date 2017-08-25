@@ -52,6 +52,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         listTableView.reloadData()
     }
     
+    func listController(didSelect items: [String]) {
+        self.userList.items = items
+        self.tabBarController?.selectedIndex = 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userList.items.count
     }

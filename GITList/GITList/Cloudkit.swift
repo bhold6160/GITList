@@ -50,11 +50,17 @@ class CloudKit {
                 print(error!.localizedDescription)
                 completion(nil)
             }
-
+            if let records = records {
                 var allLists = [List]()
     
+                for record in records {
+                    guard let recordValue = record["items"] as? [String] else { continue }
+                    
+            
                     let newList = List()
+                    newList.items = recordValue
                     allLists.append(newList)
+                }
                 
                 OperationQueue.main.addOperation {
                     completion(allLists)
@@ -63,4 +69,5 @@ class CloudKit {
             }
         }
     }
+}
 

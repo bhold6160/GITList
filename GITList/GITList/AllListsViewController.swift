@@ -26,15 +26,20 @@ class AllListsViewController: UIViewController, UITableViewDataSource, UITableVi
         self.allListsTable.rowHeight = UITableViewAutomaticDimension
         self.allListsTable.estimatedRowHeight = 75
         
+}
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         CloudKit.shared.getList { (userList) in
             if let userList = userList {
-            OperationQueue.main.addOperation {
-                self.allList = userList
-                self.allListsTable.reloadData()
+                OperationQueue.main.addOperation {
+                    self.allList = userList
+                    self.allListsTable.reloadData()
+                }
             }
         }
     }
-}
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return allList.count

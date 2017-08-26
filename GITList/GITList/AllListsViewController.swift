@@ -14,7 +14,12 @@ protocol AllListsControllerDelegate: class {
 
 class AllListsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    var allLists = [List]()
+    var allLists = [List]() {
+        didSet {
+            allListsTable.reloadData()
+        }
+    }
+    
     weak var delegate: AllListsControllerDelegate?
     
     @IBOutlet weak var allListsTable: UITableView!
@@ -61,6 +66,7 @@ class AllListsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         if let delegate = self.delegate {
             let selectedList = self.allLists[indexPath.row]
             

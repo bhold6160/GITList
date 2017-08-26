@@ -31,7 +31,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="118" id="05h-xj-wQH"/>
                                 </constraints>
-                                <state key="normal" title="Add New List"/>
+                                <state key="normal" title="+ Add New List"/>
                                 <connections>
                                     <segue destination="73T-cb-e1T" kind="show" id="vQs-GT-mAm"/>
                                 </connections>
@@ -47,7 +47,19 @@
                             <constraint firstAttribute="trailing" secondItem="uKr-jN-Kdi" secondAttribute="trailing" id="OD7-7M-Sa3"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="VfF-Vu-NMB"/>
+                    <navigationItem key="navigationItem" id="VfF-Vu-NMB">
+                        <barButtonItem key="rightBarButtonItem" id="pvL-ZT-d3x">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4jT-7n-u7E">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="All Lists"/>
+                                <connections>
+                                    <segue destination="5Bk-Ge-DJk" kind="show" id="iWl-Lj-xQV"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="homeTableView" destination="uKr-jN-Kdi" id="1r0-Yy-tmE"/>
                     </connections>
@@ -105,7 +117,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uC3-uD-0k5">
-                                <rect key="frame" x="16" y="575" width="343" height="30"/>
+                                <rect key="frame" x="16" y="569" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Save">
@@ -251,4 +263,7 @@
             <point key="canvasLocation" x="1008.8" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="iWl-Lj-xQV"/>
+    </inferredMetricsTieBreakers>
 </document>

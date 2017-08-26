@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, AllListsControllerDelegate {
 
     var userList = List()
     
@@ -44,6 +44,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let tabBarController = self.tabBarController, let viewControllers = tabBarController.viewControllers {
+            for viewController in viewControllers {
+                if let allListsController = viewController as? AllListsViewController {
+                    allListsController.delegate = self
+                }
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

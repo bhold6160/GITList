@@ -7,8 +7,27 @@
 //
 
 import UIKit
+import UserNotifications
 
 class DateViewController: UIViewController {
+    
+    
+    @IBAction func action(_ sender: Any) {
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Milk is expring in 2days"
+        content.subtitle =  datePickerText.text!
+        content.body = "This is body text lorem ipsum"
+        content.badge = 1
+        
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: "timerDone", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+        
+    }
     
     @IBOutlet weak var datePickerText: UITextField!
     
@@ -16,6 +35,11 @@ class DateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler:
+        { didAllow, error in
+        
+        })
         
         createDatePicker()
         

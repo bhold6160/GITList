@@ -32,6 +32,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 if success {
                     self.tabBarController?.selectedIndex = 2
                     self.activityIndicator.stopAnimating()
+                    self.navigationController?.popToRootViewController(animated: false)
                     print("Successfully saved to the cloud")
                 } else {
                     print("Unsuccessful in saving to cloud")

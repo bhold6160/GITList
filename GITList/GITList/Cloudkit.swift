@@ -44,6 +44,7 @@ class CloudKit {
 
     func getList(completion:  @escaping GetListCompletion) {
         let query = CKQuery(recordType: "List", predicate: NSPredicate(value: true))
+        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
 
         self.database.perform(query, inZoneWith: nil) { (records, error) in
             if error != nil {
@@ -55,10 +56,11 @@ class CloudKit {
 
                 for record in records {
                     guard let recordValue = record["items"] as? [String] else { continue }
-
+                    guard let createdAt = record["creationDate"] as? Date else { continue }
 
                     let newList = List()
                     newList.items = recordValue
+                    newList.createdAtDate = createdAt
                     allLists.append(newList)
                 }
 

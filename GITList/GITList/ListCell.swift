@@ -26,6 +26,7 @@ class ListCell: UITableViewCell {
 
                 layer.borderWidth = 2.0
                 layer.borderColor = UIColor.white.cgColor
+                
                 return "" + firstItem + secondItem + ", "
             })
         }

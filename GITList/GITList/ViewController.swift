@@ -30,8 +30,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.activityIndicator.startAnimating()
             CloudKit.shared.save(list: userList, completion: { (success) in
                 if success {
-                    self.tabBarController?.selectedIndex = 2
-                    self.activityIndicator.stopAnimating()
+                    OperationQueue.main.addOperation {
+                        usleep(2000000) //temporary fix to give cloudkit time to retrieve
+                        self.tabBarController?.selectedIndex = 2
+                        self.activityIndicator.stopAnimating()
+                        self.navigationController?.popToRootViewController(animated: false)
+                    }
                     print("Successfully saved to the cloud")
                 } else {
                     print("Unsuccessful in saving to cloud")

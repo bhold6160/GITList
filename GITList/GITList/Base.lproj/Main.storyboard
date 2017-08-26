@@ -54,6 +54,7 @@
                     <navigationItem key="navigationItem" id="VfF-Vu-NMB"/>
                     <connections>
                         <outlet property="homeTableView" destination="uKr-jN-Kdi" id="1r0-Yy-tmE"/>
+                        <segue destination="5Bk-Ge-DJk" kind="show" identifier="showAllList" id="j7N-Me-lvN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -218,7 +219,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPX-fe-E8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2361" y="1018"/>
+            <point key="canvasLocation" x="1884" y="1018"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="X4H-2h-iHq">
@@ -272,7 +273,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kPC-lF-6wZ">
-                                <rect key="frame" x="0.0" y="97" width="375" height="501"/>
+                                <rect key="frame" x="0.0" y="141" width="375" height="457"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listCell" id="mvX-ea-o9k">
@@ -343,7 +344,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XAg-Pg-El8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3207.1999999999998" y="1017.84107946027"/>
+            <point key="canvasLocation" x="2766" y="1018"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="j7N-Me-lvN"/>
+    </inferredMetricsTieBreakers>
 </document>

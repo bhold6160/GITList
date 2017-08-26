@@ -17,15 +17,20 @@ class ListCell: UITableViewCell {
     var list: List! {
         didSet {
             self.previewLabel.text = list.items.reduce("", { (firstItem, secondItem) -> String in
-                print(firstItem + "" + secondItem)
+
                 if let createdAt = list.createdAtDate {
                 titleLabel.text = DateFormatter.localizedString(from: createdAt, dateStyle:
                     DateFormatter.Style.full, timeStyle: DateFormatter.Style.none)
                 }
                 numItemsLabel.text = "\(list.items.count) items"
+<<<<<<< HEAD
                 layer.borderWidth = 2.0
                 layer.borderColor = UIColor.white.cgColor
                 return "" + firstItem + secondItem + ", "
+=======
+                print(firstItem + secondItem + " ")
+                return firstItem + secondItem + ", "
+>>>>>>> f115975b2755a2cb82cfbcbbe05f57c29b0e706a
             })
         }
     }

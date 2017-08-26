@@ -65,12 +65,21 @@ class AllListsViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            allLists.remove(at: indexPath.row)
+            allListsTable.reloadData()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-        if let delegate = self.delegate {
-            let selectedList = self.allLists[indexPath.row]
-            
-            delegate.listController(didSelect: selectedList.items)
-        }
+        self.performSegue(withIdentifier: "unwindToList", sender: self)
+//        if let delegate = self.delegate {
+//            let selectedList = self.allLists[indexPath.row]
+//            
+//            delegate.listController(didSelect: selectedList.items)
+//        }
     }
 }

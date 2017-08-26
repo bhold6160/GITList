@@ -8,12 +8,18 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, AllListsControllerDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
 
     var userList = List()
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var listTableView: UITableView!
+    
+    @IBAction func unwindToList(segue: UIStoryboardSegue) {
+        if let svc = segue.source as? AllListsViewController {
+            self.listTableView = svc.allListsTable
+        }
+    }
     
     @IBAction func addNewItem(_ sender: Any) {
         itemTextField.resignFirstResponder()
@@ -45,13 +51,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let tabBarController = self.tabBarController, let viewControllers = tabBarController.viewControllers {
-            for viewController in viewControllers {
-                if let allListsController = viewController as? AllListsViewController {
-                    allListsController.delegate = self
-                }
-            }
-        }
+//        if let tabBarController = self.tabBarController, let viewControllers = tabBarController.viewControllers {
+//            for viewController in viewControllers {
+//                if let allListsController = viewController as? AllListsViewController {
+//                    allListsController.delegate = self
+//                }
+//            }
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -60,10 +66,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         listTableView.reloadData()
     }
     
-    func listController(didSelect items: [String]) {
-        self.userList.items = items
-        self.tabBarController?.selectedIndex = 0
-    }
+    
+//    func listController(didSelect items: [String]) {
+//        self.userList.items = items
+//        self.tabBarController?.selectedIndex = 0
+//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userList.items.count

@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.activityIndicator.startAnimating()
             CloudKit.shared.save(list: userList, completion: { (success) in
                 if success {
-                    self.performSegue(withIdentifier: "saveSegue", sender: nil)
+                    self.tabBarController?.selectedIndex = 2
                     self.activityIndicator.stopAnimating()
                     print("Successfully saved to the cloud")
                 } else {

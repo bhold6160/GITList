@@ -74,7 +74,13 @@ class AllListsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
         self.performSegue(withIdentifier: "showEditView", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationController = segue.destination as? EditViewController,
+            let indexPath = allListsTable.indexPathForSelectedRow?.row {
+            destinationController.userList = self.allLists[indexPath]
+        }
     }
 }

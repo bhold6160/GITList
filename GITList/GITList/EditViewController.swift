@@ -16,6 +16,10 @@ class EditViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var itemTextField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func addNewItem(_ sender: Any) {
         itemTextField.resignFirstResponder()
         if (itemTextField.text != "") {

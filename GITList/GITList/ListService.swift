@@ -7,10 +7,19 @@
 //
 
 import Foundation
+import CloudKit
 
 class ListService {
     
     static let shared = ListService()
     
-    var allLists = [List]()
+    var listArray = [[List]]()
+    
+    func record() throws -> CKRecord? {
+        
+        let listRecord = CKRecord(recordType: "List")
+        listRecord["listArray"] = self.listArray as CKRecordValue
+        
+        return listRecord
+    }
 }

@@ -32,6 +32,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 if success {
                     self.tabBarController?.selectedIndex = 2
                     self.activityIndicator.stopAnimating()
+                    self.navigationController?.popToRootViewController(animated: false)
                     print("Successfully saved to the cloud")
                 } else {
                     print("Unsuccessful in saving to cloud")
@@ -47,10 +48,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        listTableView.reloadData()
+
+         listTableView.reloadData()
     }
     
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userList.items.count
         

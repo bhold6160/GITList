@@ -31,7 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             CloudKit.shared.save(list: userList, completion: { (success) in
                 if success {
                     OperationQueue.main.addOperation {
-                        usleep(2000000) //temporary fix to give cloudkit time to retrieve
+                        usleep(2000000) //temporary fix to give cloudkit time to retrieve data
                         self.tabBarController?.selectedIndex = 2
                         self.activityIndicator.stopAnimating()
                         self.navigationController?.popToRootViewController(animated: false)

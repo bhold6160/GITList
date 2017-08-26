@@ -18,6 +18,7 @@ class List {
     static var shared = List()
     
     var items = [String]()
+    var createdAtDate: Date?
     
     func record() throws -> CKRecord? {
             

@@ -8,15 +8,15 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
 
     var userList = List()
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var listTableView: UITableView!
     
     @IBAction func addNewItem(_ sender: Any) {
         itemTextField.resignFirstResponder()
-        
         if (itemTextField.text != "") {
             
             userList.items.append(itemTextField.text!)
@@ -27,8 +27,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
+        self.activityIndicator.startAnimating()
             CloudKit.shared.save(list: userList, completion: { (success) in
                 if success {
+                    self.tabBarController?.selectedIndex = 2
+                    self.activityIndicator.stopAnimating()
                     print("Successfully saved to the cloud")
                 } else {
                     print("Unsuccessful in saving to cloud")
@@ -50,6 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userList.items.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

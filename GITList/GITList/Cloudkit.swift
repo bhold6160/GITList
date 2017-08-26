@@ -18,9 +18,9 @@ class CloudKit {
     var database : CKDatabase {
         return container.privateCloudDatabase
     }
-    
+
     private init (){}
- 
+
     func save(list: List, completion: @escaping ListCompletion) {
         do {
             if let record = try list.record() {
@@ -29,22 +29,22 @@ class CloudKit {
                         print(error!)
                         completion(false)
                     }
-                    
+
                     if let record = record {
                         print(record)
                         completion(true)
                     }
-                    
+
                 })
             }
         } catch {
             print(error)
         }
     }
-    
+
     func getList(completion:  @escaping GetListCompletion) {
         let query = CKQuery(recordType: "List", predicate: NSPredicate(value: true))
-        
+        query.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
         self.database.perform(query, inZoneWith: nil) { (records, error) in
             if error != nil {
                 print(error!.localizedDescription)
@@ -52,16 +52,17 @@ class CloudKit {
             }
             if let records = records {
                 var allLists = [List]()
-    
+
                 for record in records {
                     guard let recordValue = record["items"] as? [String] else { continue }
-                    
-            
+                    guard let createdAt = record["creationDate"] as? Date else { continue }
+
                     let newList = List()
                     newList.items = recordValue
+                    newList.createdAtDate = createdAt
                     allLists.append(newList)
                 }
-                
+
                 OperationQueue.main.addOperation {
                     completion(allLists)
                 }

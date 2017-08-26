@@ -17,7 +17,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.layer.cornerRadius = 5
+        self.view.layer.borderWidth = 5
+        self.view.layer.masksToBounds = true
+        self.view.layer.borderColor = UIColor.white.cgColor
         self.homeTableView.dataSource = self
         self.homeTableView.delegate = self
         
@@ -57,6 +60,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-        performSegue(withIdentifier: "showAllList", sender: nil)
+        self.tabBarController?.selectedIndex = 2
     }
 }

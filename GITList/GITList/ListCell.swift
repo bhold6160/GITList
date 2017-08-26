@@ -23,11 +23,12 @@ class ListCell: UITableViewCell {
                     DateFormatter.Style.full, timeStyle: DateFormatter.Style.none)
                 }
                 numItemsLabel.text = "\(list.items.count) items"
-
+                                                            
                 layer.borderWidth = 2.0
                 layer.borderColor = UIColor.white.cgColor
-                
-                return "" + firstItem + secondItem + ", "
+                print(firstItem + secondItem + " ")
+                return firstItem + secondItem + ", "
+
             })
         }
     }

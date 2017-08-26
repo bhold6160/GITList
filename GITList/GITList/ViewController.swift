@@ -43,14 +43,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        if let tabBarController = self.tabBarController, let viewControllers = tabBarController.viewControllers {
-//            for viewController in viewControllers {
-//                if let allListsController = viewController as? AllListsViewController {
-//                    allListsController.delegate = self
-//                }
-//            }
-//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -58,12 +50,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         listTableView.reloadData()
     }
-    
-    
-//    func listController(didSelect items: [String]) {
-//        self.userList.items = items
-//        self.tabBarController?.selectedIndex = 0
-//    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userList.items.count

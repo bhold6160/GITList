@@ -28,11 +28,14 @@
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnK-hW-8rV">
-                                <rect key="frame" x="128" y="121" width="118" height="30"/>
+                                <rect key="frame" x="78" y="121" width="218" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="118" id="05h-xj-wQH"/>
+                                    <constraint firstAttribute="width" constant="218" id="05h-xj-wQH"/>
                                 </constraints>
-                                <state key="normal" title="+ Add New List"/>
+                                <state key="normal" title="Add New List">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="73T-cb-e1T" kind="show" id="vQs-GT-mAm"/>
                                 </connections>

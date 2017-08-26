@@ -17,8 +17,8 @@ class ListCell: UITableViewCell {
     var list: List! {
         didSet {
             self.previewLabel.text = list.items.reduce("", { (firstItem, secondItem) -> String in
-                print(firstItem + "" + secondItem)
-                return "" + firstItem + ", " + secondItem
+                print(firstItem + secondItem + " ")
+                return firstItem + secondItem + ", "
             })
         }
     }

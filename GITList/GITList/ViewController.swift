@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
 
     var userList = List()
     
@@ -17,7 +17,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func addNewItem(_ sender: Any) {
         itemTextField.resignFirstResponder()
-        
         if (itemTextField.text != "") {
             
             userList.items.append(itemTextField.text!)
@@ -31,7 +30,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.activityIndicator.startAnimating()
             CloudKit.shared.save(list: userList, completion: { (success) in
                 if success {
-                    self.performSegue(withIdentifier: "saveSegue", sender: nil)
+                    self.tabBarController?.selectedIndex = 2
                     self.activityIndicator.stopAnimating()
                     print("Successfully saved to the cloud")
                 } else {

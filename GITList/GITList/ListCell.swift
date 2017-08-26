@@ -9,7 +9,7 @@
 import UIKit
 
 class ListCell: UITableViewCell {
-    
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var previewLabel: UILabel!
     @IBOutlet weak var numItemsLabel: UILabel!
@@ -23,10 +23,12 @@ class ListCell: UITableViewCell {
                     DateFormatter.Style.full, timeStyle: DateFormatter.Style.none)
                 }
                 numItemsLabel.text = "\(list.items.count) items"
+                                                            
                 layer.borderWidth = 2.0
                 layer.borderColor = UIColor.white.cgColor
                 print(firstItem + secondItem + " ")
                 return firstItem + secondItem + ", "
+
             })
         }
     }

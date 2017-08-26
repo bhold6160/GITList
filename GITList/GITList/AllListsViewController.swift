@@ -26,7 +26,10 @@ class AllListsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.layer.cornerRadius = 5
+        self.view.layer.borderWidth = 5
+        self.view.layer.masksToBounds = true
+        self.view.layer.borderColor = UIColor.white.cgColor
         self.allListsTable.dataSource = self
         self.allListsTable.delegate = self
         

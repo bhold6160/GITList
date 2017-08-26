@@ -16,7 +16,10 @@ class DateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.view.layer.cornerRadius = 5
+        self.view.layer.borderWidth = 5
+        self.view.layer.masksToBounds = true
+        self.view.layer.borderColor = UIColor.white.cgColor
         createDatePicker()
         
         // Do any additional setup after loading the view.

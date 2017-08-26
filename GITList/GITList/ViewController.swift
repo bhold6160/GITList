@@ -18,7 +18,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func addNewItem(_ sender: Any) {
         itemTextField.resignFirstResponder()
         if (itemTextField.text != "") {
-            
             userList.items.append(itemTextField.text!)
             print(userList.items)
             listTableView.reloadData()
@@ -43,6 +42,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.layer.cornerRadius = 5
+        self.view.layer.borderWidth = 5
+        self.view.layer.masksToBounds = true
+        self.view.layer.borderColor = UIColor.white.cgColor
     }
     
     override func viewDidAppear(_ animated: Bool) {

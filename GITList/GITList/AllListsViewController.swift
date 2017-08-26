@@ -75,19 +75,6 @@ class AllListsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-        CloudKit.shared.getList { (selectedList) in
-            if let selectedList = selectedList {
-                OperationQueue.main.addOperation {
-                    self.performSegue(withIdentifier: "unwindToList", sender: self)
-                    self.allLists = selectedList
-                    self.allListsTable.reloadData()
-                }
-            }
-        }
-//        if let delegate = self.delegate {
-//            let selectedList = self.allLists[indexPath.row]
-//            
-//            delegate.listController(didSelect: selectedList.items)
-//        }
+        self.performSegue(withIdentifier: "showEditView", sender: nil)
     }
 }

@@ -15,12 +15,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var listTableView: UITableView!
     
-    @IBAction func unwindToList(segue: UIStoryboardSegue) {
-        if let svc = segue.source as? AllListsViewController {
-            self.listTableView = svc.allListsTable
-        }
-    }
-    
     @IBAction func addNewItem(_ sender: Any) {
         itemTextField.resignFirstResponder()
         if (itemTextField.text != "") {

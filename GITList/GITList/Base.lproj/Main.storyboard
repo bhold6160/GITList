@@ -59,7 +59,7 @@
         <!--View Controller-->
         <scene sceneID="eqh-pE-dtm">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="73T-cb-e1T" customClass="ViewController" customModule="GITList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" automaticallyAdjustsScrollViewInsets="NO" id="73T-cb-e1T" customClass="ViewController" customModule="GITList" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V1S-vv-8Bf"/>
                         <viewControllerLayoutGuide type="bottom" id="Vna-rC-JGd"/>
@@ -207,13 +207,12 @@
                     <tabBarItem key="tabBarItem" title="All" id="jON-88-zwD"/>
                     <connections>
                         <outlet property="allListsTable" destination="7Bi-cx-drw" id="9dy-DP-ySN"/>
-                        <segue destination="8Iv-Fw-5p3" kind="unwind" identifier="unwindToList" unwindAction="unwindToListWithSegue:" id="GCD-ph-YYr"/>
+                        <segue destination="RnZ-LD-CYx" kind="show" identifier="showEditView" id="ocq-3B-1n8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZPX-fe-E8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="8Iv-Fw-5p3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2135" y="1039"/>
+            <point key="canvasLocation" x="2361" y="1018"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="X4H-2h-iHq">
@@ -253,6 +252,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KVF-fe-s75" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1008.8" y="138.98050974512745"/>
+        </scene>
+        <!--Edit View Controller-->
+        <scene sceneID="Ain-Mu-uZL">
+            <objects>
+                <viewController storyboardIdentifier="EditViewController" automaticallyAdjustsScrollViewInsets="NO" id="RnZ-LD-CYx" customClass="EditViewController" customModule="GITList" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fg3-b6-WlW"/>
+                        <viewControllerLayoutGuide type="bottom" id="s4n-OV-CQO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="odV-Hd-qLP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kPC-lF-6wZ">
+                                <rect key="frame" x="0.0" y="106" width="375" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listCell" id="mvX-ea-o9k">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mvX-ea-o9k" id="RVv-Nw-Hig">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="RnZ-LD-CYx" id="Ep0-8b-gc1"/>
+                                    <outlet property="delegate" destination="RnZ-LD-CYx" id="gQY-zD-yqL"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W0y-h1-sn8">
+                                <rect key="frame" x="16" y="28" width="304" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="igg-zn-tNr">
+                                <rect key="frame" x="177" y="323" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s1a-od-ikO">
+                                <rect key="frame" x="16" y="569" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="RnZ-LD-CYx" eventType="touchUpInside" id="7Tu-e2-qMG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAc-U9-nu5">
+                                <rect key="frame" x="337" y="32" width="22" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="addNewItem:" destination="RnZ-LD-CYx" eventType="touchUpInside" id="TAV-oa-sxp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kPC-lF-6wZ" firstAttribute="top" secondItem="Fg3-b6-WlW" secondAttribute="bottom" constant="42" id="4oo-qi-DdM"/>
+                            <constraint firstItem="s4n-OV-CQO" firstAttribute="top" secondItem="kPC-lF-6wZ" secondAttribute="bottom" constant="20" id="IxQ-Jw-5GF"/>
+                            <constraint firstItem="kPC-lF-6wZ" firstAttribute="leading" secondItem="odV-Hd-qLP" secondAttribute="leading" id="wNK-0b-GCb"/>
+                            <constraint firstAttribute="trailing" secondItem="kPC-lF-6wZ" secondAttribute="trailing" id="y01-gp-neO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="igg-zn-tNr" id="Iy5-CK-gqO"/>
+                        <outlet property="editTableView" destination="kPC-lF-6wZ" id="rXc-np-Ub9"/>
+                        <outlet property="itemTextField" destination="W0y-h1-sn8" id="Mjk-NX-hBH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XAg-Pg-El8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3256.8000000000002" y="1017.84107946027"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -179,7 +179,7 @@
             </objects>
             <point key="canvasLocation" x="1008.8" y="1017.84107946027"/>
         </scene>
-        <!--All Lists-->
+        <!--All-->
         <scene sceneID="mgp-br-JL8">
             <objects>
                 <viewController id="5Bk-Ge-DJk" customClass="AllListsViewController" customModule="GITList" customModuleProvider="target" sceneMemberID="viewController">
@@ -204,7 +204,7 @@
                             <constraint firstItem="Jjd-4O-Nqo" firstAttribute="top" secondItem="7Bi-cx-drw" secondAttribute="bottom" constant="8" id="pvt-cs-jtd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="All Lists" id="jON-88-zwD"/>
+                    <tabBarItem key="tabBarItem" title="All" id="jON-88-zwD"/>
                     <connections>
                         <outlet property="allListsTable" destination="7Bi-cx-drw" id="9dy-DP-ySN"/>
                         <segue destination="8Iv-Fw-5p3" kind="unwind" identifier="unwindToList" unwindAction="unwindToListWithSegue:" id="GCD-ph-YYr"/>

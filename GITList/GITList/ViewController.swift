@@ -23,7 +23,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func addNewItem(_ sender: Any) {
         itemTextField.resignFirstResponder()
-        
         if (itemTextField.text != "") {
             
             userList.items.append(itemTextField.text!)
